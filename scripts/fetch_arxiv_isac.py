@@ -43,6 +43,16 @@ CATEGORIES = [
         "Deep Learning",
         'all:"integrated sensing and communication" AND all:"deep learning"',
     ),
+    (
+        "Federated Learning",
+        'all:"integrated sensing and communication" AND '
+        'all:"federated learning"',
+    ),
+    (
+        "Semantic Communication",
+        'all:"integrated sensing and communication" AND '
+        'all:"semantic communication"',
+    ),
 ]
 
 

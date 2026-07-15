@@ -1,0 +1,37 @@
+name: Refresh arXiv paper report
+
+on:
+  schedule:
+    # Every Monday at 06:00 UTC
+    - cron: "0 6 * * 1"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch latest ISAC + AI papers from arXiv
+        run: python scripts/fetch_arxiv_isac.py -n 10 -o latest-arxiv-report.md
+
+      - name: Commit and push if the report changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add latest-arxiv-report.md
+          if git diff --cached --quiet; then
+            echo "No changes in the arXiv report this week."
+          else
+            git commit -m "Weekly refresh of latest-arxiv-report.md"
+            git push
+          fi

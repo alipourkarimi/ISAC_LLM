@@ -2,8 +2,8 @@
 
 A curated collection of arXiv papers at the intersection of **Integrated Sensing and
 Communication (ISAC)** and **Artificial Intelligence** — covering Large Language Models
-(LLMs), Generative AI / diffusion models, (Deep) Reinforcement Learning, and classical
-Deep Learning approaches.
+(LLMs), Generative AI / diffusion models, (Deep) Reinforcement Learning, classical
+Deep Learning, Federated Learning, and Semantic Communication approaches.
 
 ISAC is a key enabling technology for 6G in which one waveform, one spectrum, and one
 hardware platform serve **both** radar-style sensing (detection, localization, tracking)
@@ -23,7 +23,9 @@ closed-form methods, AI techniques have become the dominant research direction.
 | [`papers/02-generative-ai-for-isac.md`](papers/02-generative-ai-for-isac.md) | Generative AI & diffusion models for ISAC |
 | [`papers/03-reinforcement-learning-for-isac.md`](papers/03-reinforcement-learning-for-isac.md) | (Deep) Reinforcement Learning for ISAC |
 | [`papers/04-deep-learning-for-isac.md`](papers/04-deep-learning-for-isac.md) | Deep learning, surveys & tutorials for ISAC |
+| [`papers/05-federated-learning-and-semantic-isac.md`](papers/05-federated-learning-and-semantic-isac.md) | Federated learning & semantic communication for ISAC |
 | [`scripts/fetch_arxiv_isac.py`](scripts/fetch_arxiv_isac.py) | Python script that re-runs the arXiv search so the collection can be refreshed |
+| [`.github/workflows/update-papers.yml`](.github/workflows/update-papers.yml) | Weekly GitHub Action that refreshes [`latest-arxiv-report.md`](latest-arxiv-report.md) automatically |
 
 ## Paper index
 
@@ -50,6 +52,14 @@ closed-form methods, AI techniques have become the dominant research direction.
 | 19 | [2402.09439](https://arxiv.org/abs/2402.09439) | DL channel estimation for IRS-assisted ISAC | DNNs |
 | 20 | [2509.21118](https://arxiv.org/abs/2509.21118) | Neural ISAC for the MIMO-OFDM downlink | Neural signal processing |
 | 21 | [2509.02137](https://arxiv.org/abs/2509.02137) | High-resolution sensing in communication-centric ISAC | DL + parametric methods |
+| 22 | [2508.15185](https://arxiv.org/abs/2508.15185) | ISCC for over-the-air federated edge learning | Federated learning + AirComp |
+| 23 | [2306.02990](https://arxiv.org/abs/2306.02990) | ISCC for UAV-assisted federated edge learning | Federated learning |
+| 24 | [2512.03374](https://arxiv.org/abs/2512.03374) | Vertical federated edge learning in edge perception networks | Vertical federated learning |
+| 25 | [2603.15783](https://arxiv.org/abs/2603.15783) | Multi-objective OTA-FEEL for collaborative ISAC | Federated learning + MOO |
+| 26 | [2503.08726](https://arxiv.org/abs/2503.08726) | SIMAC: semantic-driven multimodal sensing & communication | ViT + cross-attention |
+| 27 | [2504.07656](https://arxiv.org/abs/2504.07656) | ISCSC with fluid antenna for metaverse | Semantic communication |
+| 28 | [2506.00522](https://arxiv.org/abs/2506.00522) | ISCSC for vehicular networks | Semantic communication + transformer |
+| 29 | [2409.20453](https://arxiv.org/abs/2409.20453) | E-healthcare ISCSC with physical-layer security | Semantic communication + PLS |
 
 ## Key takeaways across the literature
 
@@ -66,6 +76,10 @@ closed-form methods, AI techniques have become the dominant research direction.
 4. **Digital twins and model-driven DL narrow the sim-to-real gap** — pure black-box
    learning is giving way to hybrid designs that embed known signal-processing structure
    (ISAC-NET) or train against a synchronized virtual replica of the network.
+5. **ISAC is expanding into ISCC/ISCSC** — federated edge learning adds *computation* as
+   a third co-designed resource, and semantic communication replaces bit pipes with
+   meaning pipes; the newest papers co-optimize sensing, communication, computation, and
+   security together.
 
 ## Refreshing this collection
 
