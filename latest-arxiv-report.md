@@ -1,6 +1,6 @@
 # ISAC + AI papers on arXiv
 
-Generated on 2026-07-15 via the arXiv API.
+Generated on 2026-07-20 via the arXiv API.
 
 ## Large Language Models (LLMs)
 
@@ -319,6 +319,12 @@ Generated on 2026-07-15 via the arXiv API.
 
 ## Semantic Communication
 
+### [Goal-Oriented Semantic Communication for Distributed ISAC-Enabled Vehicle Coordination](http://arxiv.org/abs/2607.15111v1)
+
+- **arXiv:** 2607.15111v1 · 2026-07-16 · Wenjie Liu, Yansha Deng
+
+> Vehicle coordination at unsignalized intersections relies on accurate real-time vehicle state acquisition and reliable command-and-control (C&C) signal delivery. However, existing studies typically treat sensing, communication, and control separately, which may lead to redundant transmissions, outdated state information, and unreliable vehicle coordination. In this paper, we investigate a new scenario of distributed integrated sensing and communication (ISAC)-enabled vehicle coordination at intersections, where multiple roadside units (RSUs) collaboratively transmit sensing signals for vehicle state acquisition and C&C signals for vehicle movement control under the management of a central base station (BS). To improve signaling efficiency, we propose a unified goal-oriented semantic communication (GSC) framework, which transmits sensing and C&C signals only when they are semantically important for improving intersection traffic throughput. Specifically, an extended Kalman filter (EKF) is adopted to predict vehicle states and fuse distributed sensing measurements. A masked hybrid proximal policy optimization (MHPPO) framework is then developed to jointly determine sensing transmission decisions, C&C transmission decisions, and C&C signal contents based on a value-of-information (VoI) reward. Furthermore, we propose an uncertainty-aware transmission design (UTD), including robust beamforming and VoI-based time-division power allocation, to improve sensing and communication reliability under vehicle state uncertainty and inter-RSU interference. Simulation results show that our proposed framework achieves 100% collision-free vehicle coordination with significantly reduced signaling overhead compared with predictive ISAC baselines adapted from state-of-the-art related studies and several ablation baselines.
+
 ### [Foundation Models for Wireless Communications: From PHY Intelligence to Network Autonomy](http://arxiv.org/abs/2606.06239v1)
 
 - **arXiv:** 2606.06239v1 · 2026-06-04 · Le Liang, Jiajia Guo, Jun Zhang et al.
@@ -372,9 +378,3 @@ Generated on 2026-07-15 via the arXiv API.
 - **arXiv:** 2506.22507v2 · 2025-06-26 · Yubo Peng, Luping Xiang, Kun Yang et al.
 
 > The transition to 6G calls for tightly integrated sensing and communication to support mission-critical services such as autonomous driving, embodied AI, and high-precision telemedicine. However, most existing ISAC designs rely on a single sensing modality (often RF), which limits environmental understanding and becomes a bottleneck in complex and dynamic scenes. This motivates a shift from single-modal to multimodal ISAC, where heterogeneous sensors (e.g., radar, LiDAR, and cameras) complement each other to improve robustness and semantic awareness. In this article, we first summarize key challenges for multimodal ISAC, including heterogeneous fusion, communication overhead, and scalable system design. We then highlight three enabling technologies: large AI models, semantic communications, and multi-agent systems, and discuss how their combination can enable task-oriented multimodal perception. Building on these insights, we propose a unified cloud-edge-terminal (CET) framework that hierarchically distributes intelligence and supports three adaptive operation modes: global fusion mode (GFM), cooperative relay mode (CRM), and peer interaction mode (PIM). A case study evaluates the framework across three modes, demonstrating that GFM achieves the highest accuracy, PIM minimizes latency, and CRM strikes an optimal balance between performance and efficiency. Finally, we conclude with open research issues and future directions.
-
-### [From Ground to Sky: Architectures, Applications, and Challenges Shaping Low-Altitude Wireless Networks](http://arxiv.org/abs/2506.12308v4)
-
-- **arXiv:** 2506.12308v4 · 2025-06-14 · Weijie Yuan, Yuanhao Cui, Jiacheng Wang et al.
-
-> In this article, we introduce a novel low-altitude wireless network (LAWN), which is a reconfigurable, three-dimensional (3D) layered architecture. In particular, the LAWN integrates connectivity, sensing, control, and computing across aerial and terrestrial nodes that enable seamless operation in complex, dynamic, and mission-critical environments. Different from the conventional aerial communication systems, LAWN's distinctive feature is its tight integration of functional planes in which multiple functionalities continually reshape themselves to operate safely and efficiently in the low-altitude sky. With the LAWN, we discuss several enabling technologies, such as integrated sensing and communication (ISAC), semantic communication, and fully-actuated control systems. Finally, we identify potential applications and key cross-layer challenges. This article offers a comprehensive roadmap for future research and development in the low-altitude airspace.
