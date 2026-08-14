@@ -93,10 +93,82 @@ to multi-domain (space/air/water) ISAC networks.
 
 ---
 
+## 6. Joint User Association and Beamforming Design for ISAC Networks with Large Language Models
+
+- **arXiv:** [2506.05637](https://arxiv.org/abs/2506.05637) · Jun 2025 · eess.SP
+
+**Brief.** Considers a **multi-base-station ISAC network** serving several ground users
+while detecting several targets, and formulates joint user association + multi-BS
+transmit beamforming to maximize sum rate subject to target detection and estimation
+requirements. The key idea is a **division of labor**: the discrete, combinatorial user
+association is handed to an LLM steered by **few-shot prompting, chain-of-thought, and
+self-reflection**, while the continuous beamforming sub-problem stays with a classical
+convex solver, the two alternating to convergence. With GPT-o1 driving the association
+step, the algorithm converges quickly and lands near the performance upper bound.
+
+**Why it matters:** a clean recipe for where LLMs actually add value in ISAC
+optimization — discrete/combinatorial decisions that convex solvers handle badly — while
+leaving the continuous math to tools that are already optimal at it.
+
+---
+
+## 7. BeamLLM: Vision-Empowered mmWave Beam Prediction with Large Language Models
+
+- **arXiv:** [2503.10432](https://arxiv.org/abs/2503.10432) · Mar 2025 · eess.SP
+
+**Brief.** mmWave links need the right narrow beam at the right instant, and scanning for
+it burns overhead. BeamLLM predicts the beam from **camera imagery plus radio context**,
+adapting an LLM as the cross-modal reasoning backbone over visual scene features. It
+reports substantial accuracy and robustness gains over conventional deep-learning
+predictors, and — the notable part — holds up in **few-shot** settings where task-specific
+networks collapse for lack of training data.
+
+**Why it matters:** the strongest evidence so far that an LLM's pretrained contextual
+reasoning transfers to a physical-layer task, especially when labeled data is scarce.
+
+---
+
+## 8. From Intent to Infrastructure: LLM-Driven Agent Compilers for ISAC Networks
+
+- **arXiv:** [2607.16269](https://arxiv.org/abs/2607.16269) · Jul 2026 · eess.SP / cs.NI
+
+**Brief.** (Newest LLM entry in this collection.) Observes that AI-for-ISAC work almost
+always optimizes one isolated subtask, leaving a gap between a human's **high-level
+intent** ("track vehicles on this corridor while keeping user throughput above X") and a
+**complete system configuration**. The paper proposes LLMs as **agent compilers**: the
+model parses intent and compiles it down into a coordinated pipeline of ISAC agents and
+concrete network parameters — effectively treating network configuration as a code
+generation problem.
+
+**Why it matters:** points at intent-based networking for ISAC, where the LLM is the
+orchestration layer over many specialized components rather than a single-task solver.
+
+---
+
+## 9. A Unified Cloud-Edge-Terminal Framework for Multimodal Integrated Sensing and Communication
+
+- **arXiv:** [2506.22507](https://arxiv.org/abs/2506.22507) · Jun 2025 · eess.SP
+
+**Brief.** Addresses *where* large models should run in a multimodal ISAC system by
+splitting work across the **cloud, edge, and terminal** tiers: lightweight processing of
+sensing streams happens near the device, heavier multimodal reasoning is offloaded
+upward, and the framework coordinates the hand-offs. It targets the practical blocker
+named in nearly every LLM-ISAC paper — large-model latency at the network edge.
+
+**Why it matters:** moves the conversation from "can an LLM do this?" to "where in the
+network does it physically run?", which is what deployment actually turns on.
+
+---
+
 ### Category takeaway
 
 LLM-for-ISAC work is young but moving fast: 2024 papers used LLMs *around* the problem
 (as optimizers or agents); 2025–2026 papers increasingly put wireless data *inside* the
-model (foundation models, LoRA fine-tuning on CSI). The open challenges repeatedly named
-are hallucination in numeric tasks, latency of large models at the network edge, and the
-lack of large public ISAC datasets for pre-training.
+model (foundation models, LoRA fine-tuning on CSI), and the newest work (2026) promotes
+the LLM to an **orchestration layer** that compiles human intent into full network
+configurations. A consistent pattern across the strongest results is *hybrid* design:
+give the LLM the discrete, semantic, or few-shot part of the problem and leave the
+continuous optimization to convex solvers. The open challenges repeatedly named are
+hallucination in numeric tasks, latency of large models at the network edge (now being
+answered by cloud-edge-terminal splits), and the lack of large public ISAC datasets for
+pre-training.

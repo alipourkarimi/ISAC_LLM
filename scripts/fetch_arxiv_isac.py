@@ -53,6 +53,11 @@ CATEGORIES = [
         'all:"integrated sensing and communication" AND '
         'all:"semantic communication"',
     ),
+    (
+        "Wireless Foundation Models",
+        'all:"integrated sensing and communication" AND '
+        '(all:"foundation model" OR all:"multimodal sensing")',
+    ),
 ]
 
 

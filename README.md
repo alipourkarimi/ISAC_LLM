@@ -1,17 +1,19 @@
 # AI-Empowered Integrated Sensing and Communication (ISAC) — arXiv Research Collection
 
-A curated collection of arXiv papers at the intersection of **Integrated Sensing and
-Communication (ISAC)** and **Artificial Intelligence** — covering Large Language Models
-(LLMs), Generative AI / diffusion models, (Deep) Reinforcement Learning, classical
-Deep Learning, Federated Learning, and Semantic Communication approaches.
+A curated collection of **39 arXiv papers** at the intersection of **Integrated Sensing
+and Communication (ISAC)** and **Artificial Intelligence** — covering Large Language
+Models (LLMs), Generative AI / diffusion models, (Deep) Reinforcement Learning, classical
+Deep Learning, Federated Learning, Semantic Communication, and Wireless Foundation Models.
 
 ISAC is a key enabling technology for 6G in which one waveform, one spectrum, and one
 hardware platform serve **both** radar-style sensing (detection, localization, tracking)
 and data communication. Because the joint design space is huge and hard to optimize with
 closed-form methods, AI techniques have become the dominant research direction.
 
-> Compiled on **2026-07-05** from arXiv searches. Each brief is based on the paper's
-> abstract and public metadata — always read the original paper before citing.
+> Curated briefs last updated **2026-08-14** from arXiv searches. Each brief is based on
+> the paper's abstract and public metadata — always read the original paper before
+> citing. For an unfiltered, always-current feed see
+> [`latest-arxiv-report.md`](latest-arxiv-report.md), regenerated weekly by CI.
 
 ---
 
@@ -19,11 +21,12 @@ closed-form methods, AI techniques have become the dominant research direction.
 
 | File | Contents |
 |---|---|
-| [`papers/01-llm-for-isac.md`](papers/01-llm-for-isac.md) | Large Language Models & foundation models for ISAC |
+| [`papers/01-llm-for-isac.md`](papers/01-llm-for-isac.md) | Large Language Models for ISAC |
 | [`papers/02-generative-ai-for-isac.md`](papers/02-generative-ai-for-isac.md) | Generative AI & diffusion models for ISAC |
 | [`papers/03-reinforcement-learning-for-isac.md`](papers/03-reinforcement-learning-for-isac.md) | (Deep) Reinforcement Learning for ISAC |
 | [`papers/04-deep-learning-for-isac.md`](papers/04-deep-learning-for-isac.md) | Deep learning, surveys & tutorials for ISAC |
 | [`papers/05-federated-learning-and-semantic-isac.md`](papers/05-federated-learning-and-semantic-isac.md) | Federated learning & semantic communication for ISAC |
+| [`papers/06-foundation-models-for-isac.md`](papers/06-foundation-models-for-isac.md) | Multimodal wireless foundation models for ISAC (2025–2026) |
 | [`scripts/fetch_arxiv_isac.py`](scripts/fetch_arxiv_isac.py) | Python script that re-runs the arXiv search so the collection can be refreshed |
 | [`.github/workflows/update-papers.yml`](.github/workflows/update-papers.yml) | Weekly GitHub Action that refreshes [`latest-arxiv-report.md`](latest-arxiv-report.md) automatically |
 
@@ -60,6 +63,16 @@ closed-form methods, AI techniques have become the dominant research direction.
 | 27 | [2504.07656](https://arxiv.org/abs/2504.07656) | ISCSC with fluid antenna for metaverse | Semantic communication |
 | 28 | [2506.00522](https://arxiv.org/abs/2506.00522) | ISCSC for vehicular networks | Semantic communication + transformer |
 | 29 | [2409.20453](https://arxiv.org/abs/2409.20453) | E-healthcare ISCSC with physical-layer security | Semantic communication + PLS |
+| 30 | [2506.05637](https://arxiv.org/abs/2506.05637) | Joint user association & beamforming for ISAC with LLMs | LLM + convex optimization |
+| 31 | [2503.10432](https://arxiv.org/abs/2503.10432) | BeamLLM: vision-empowered mmWave beam prediction | LLM + vision |
+| 32 | [2607.16269](https://arxiv.org/abs/2607.16269) | LLM-driven agent compilers for ISAC networks | LLM agents / intent-based |
+| 33 | [2506.22507](https://arxiv.org/abs/2506.22507) | Unified cloud-edge-terminal multimodal ISAC | Distributed large models |
+| 34 | [2511.12305](https://arxiv.org/abs/2511.12305) | MMSense: vision foundation model for wireless sensing | Multimodal foundation model |
+| 35 | [2604.18255](https://arxiv.org/abs/2604.18255) | WiFo-MiSAC: wireless foundation model (SoM) | Self-supervised foundation model |
+| 36 | [2512.23897](https://arxiv.org/abs/2512.23897) | WMFM: vision + communication foundation model for 6G ISAC | Contrastive learning |
+| 37 | [2602.04016](https://arxiv.org/abs/2602.04016) | Multi-modal foundational model for communication & sensing | Physics-grounded foundation model |
+| 38 | [2606.06239](https://arxiv.org/abs/2606.06239) | Foundation models for wireless: PHY intelligence → autonomy | Survey |
+| 39 | [2606.20583](https://arxiv.org/abs/2606.20583) | Physical-AI: channel awareness → environmental intelligence | Vision paper |
 
 ## Key takeaways across the literature
 
@@ -80,6 +93,15 @@ closed-form methods, AI techniques have become the dominant research direction.
    a third co-designed resource, and semantic communication replaces bit pipes with
    meaning pipes; the newest papers co-optimize sensing, communication, computation, and
    security together.
+6. **2026's pivot: multimodal wireless foundation models** — the field is moving from a
+   network-per-task to *pre-train once, fine-tune many*, and from RF-only to RF + vision
+   + LiDAR aligned in one embedding space via self-supervised or contrastive objectives
+   that require no labels. Two strategies compete: adapt an existing vision foundation
+   model, or pre-train natively on tokenized wireless signals.
+7. **The best LLM results are hybrid, not end-to-end** — across the strongest papers the
+   LLM takes the discrete, semantic, or few-shot part of the problem (user association,
+   beam selection from imagery, intent parsing) while convex solvers keep the continuous
+   optimization. Pure "ask the LLM to design the system" approaches do not lead.
 
 ## Refreshing this collection
 
