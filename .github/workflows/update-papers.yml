@@ -8,16 +8,17 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   refresh:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
@@ -35,3 +36,36 @@ jobs:
             git commit -m "Weekly refresh of latest-arxiv-report.md"
             git push
           fi
+
+      # Without this the job can fail every week and nobody notices: the report
+      # just silently stops updating. Open (or reuse) an issue instead.
+      - name: Report failure as an issue
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = "Weekly arXiv refresh is failing";
+            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}` +
+                           `/actions/runs/${context.runId}`;
+            const body = `The scheduled refresh of \`latest-arxiv-report.md\` failed.\n\n` +
+                         `Run: ${runUrl}\n\n` +
+                         `The report is now stale until this is fixed. A common cause is ` +
+                         `arXiv changing what it accepts from automated clients ` +
+                         `(e.g. HTTP 406 when the request sends no \`Accept\` header).`;
+            const existing = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: "open",
+              labels: "automation-failure",
+            });
+            if (existing.data.some((issue) => issue.title === title)) {
+              core.info("An open failure issue already exists; not filing another.");
+              return;
+            }
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title,
+              body,
+              labels: ["automation-failure"],
+            });
