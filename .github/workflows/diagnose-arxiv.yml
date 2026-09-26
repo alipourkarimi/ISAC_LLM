@@ -7,33 +7,9 @@ jobs:
   probe:
     runs-on: ubuntu-latest
     steps:
-      - name: Probe alternative paper-metadata sources
-        run: |
-          python - <<'PY'
-          import urllib.request, urllib.error, json
-
-          UA = "isac-ai-paper-collector/1.1 (+https://github.com/alipourkarimi/ISAC_LLM)"
-          targets = {
-              "arxiv api (https)": "https://export.arxiv.org/api/query?search_query=all:isac&max_results=1",
-              "arxiv api (http)": "http://export.arxiv.org/api/query?search_query=all:isac&max_results=1",
-              "arxiv rss": "https://rss.arxiv.org/rss/eess.SP",
-              "openalex": "https://api.openalex.org/works?filter=title.search:integrated%20sensing%20and%20communication&per-page=2",
-              "semanticscholar": "https://api.semanticscholar.org/graph/v1/paper/search?query=integrated%20sensing%20and%20communication&limit=2&fields=title,abstract,externalIds,publicationDate",
-              "crossref": "https://api.crossref.org/works?query=integrated+sensing+and+communication&rows=2",
-          }
-          for name, url in targets.items():
-              req = urllib.request.Request(url, headers={
-                  "User-Agent": UA,
-                  "Accept": "application/json,application/atom+xml,application/xml,*/*;q=0.8",
-              })
-              try:
-                  with urllib.request.urlopen(req, timeout=45) as r:
-                      body = r.read()
-                      print(f"{name}: OK {r.status} ({len(body)} bytes) "
-                            f"ctype={r.headers.get('Content-Type')}")
-                      print(f"    head: {body[:160]!r}")
-              except urllib.error.HTTPError as e:
-                  print(f"{name}: HTTP {e.code} server={e.headers.get('Server')}")
-              except Exception as e:
-                  print(f"{name}: {type(e).__name__}: {e}")
-          PY
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Dry-run the collector against the live APIs
+        run: python scripts/fetch_arxiv_isac.py -n 2 | head -80
