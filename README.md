@@ -1,16 +1,17 @@
 # AI-Empowered Integrated Sensing and Communication (ISAC) — arXiv Research Collection
 
-A curated collection of **39 arXiv papers** at the intersection of **Integrated Sensing
+A curated collection of **42 arXiv papers** at the intersection of **Integrated Sensing
 and Communication (ISAC)** and **Artificial Intelligence** — covering Large Language
 Models (LLMs), Generative AI / diffusion models, (Deep) Reinforcement Learning, classical
-Deep Learning, Federated Learning, Semantic Communication, and Wireless Foundation Models.
+Deep Learning, Federated Learning, Semantic Communication, Wireless Foundation Models,
+and Agentic AI.
 
 ISAC is a key enabling technology for 6G in which one waveform, one spectrum, and one
 hardware platform serve **both** radar-style sensing (detection, localization, tracking)
 and data communication. Because the joint design space is huge and hard to optimize with
 closed-form methods, AI techniques have become the dominant research direction.
 
-> Curated briefs last updated **2026-08-14** from arXiv searches. Each brief is based on
+> Curated briefs last updated **2026-09-26** from arXiv searches. Each brief is based on
 > the paper's abstract and public metadata — always read the original paper before
 > citing. For an unfiltered, always-current feed see
 > [`latest-arxiv-report.md`](latest-arxiv-report.md), regenerated weekly by CI.
@@ -27,7 +28,8 @@ closed-form methods, AI techniques have become the dominant research direction.
 | [`papers/04-deep-learning-for-isac.md`](papers/04-deep-learning-for-isac.md) | Deep learning, surveys & tutorials for ISAC |
 | [`papers/05-federated-learning-and-semantic-isac.md`](papers/05-federated-learning-and-semantic-isac.md) | Federated learning & semantic communication for ISAC |
 | [`papers/06-foundation-models-for-isac.md`](papers/06-foundation-models-for-isac.md) | Multimodal wireless foundation models for ISAC (2025–2026) |
-| [`scripts/fetch_arxiv_isac.py`](scripts/fetch_arxiv_isac.py) | Python script that re-runs the arXiv search so the collection can be refreshed |
+| [`papers/07-agentic-ai-for-isac.md`](papers/07-agentic-ai-for-isac.md) | Agentic AI & closed-loop ISAC (AISAC) |
+| [`scripts/fetch_arxiv_isac.py`](scripts/fetch_arxiv_isac.py) | Python script that re-runs the search so the collection can be refreshed |
 | [`.github/workflows/update-papers.yml`](.github/workflows/update-papers.yml) | Weekly GitHub Action that refreshes [`latest-arxiv-report.md`](latest-arxiv-report.md) automatically |
 
 ## Paper index
@@ -73,6 +75,9 @@ closed-form methods, AI techniques have become the dominant research direction.
 | 37 | [2602.04016](https://arxiv.org/abs/2602.04016) | Multi-modal foundational model for communication & sensing | Physics-grounded foundation model |
 | 38 | [2606.06239](https://arxiv.org/abs/2606.06239) | Foundation models for wireless: PHY intelligence → autonomy | Survey |
 | 39 | [2606.20583](https://arxiv.org/abs/2606.20583) | Physical-AI: channel awareness → environmental intelligence | Vision paper |
+| 40 | [2607.16507](https://arxiv.org/abs/2607.16507) | AISAC: closing the loop between AI and ISAC | Agentic AI / closed loop |
+| 41 | [2608.05792](https://arxiv.org/abs/2608.05792) | When agentic AI meets ISAC | Agentic AI (multi-technique) |
+| 42 | [2512.15044](https://arxiv.org/abs/2512.15044) | Agentic AI for ISAC: analysis, framework, case study | Agentic AI |
 
 ## Key takeaways across the literature
 
@@ -102,15 +107,28 @@ closed-form methods, AI techniques have become the dominant research direction.
    LLM takes the discrete, semantic, or few-shot part of the problem (user association,
    beam selection from imagery, intent parsing) while convex solvers keep the continuous
    optimization. Pure "ask the LLM to design the system" approaches do not lead.
+8. **Mid-2026: autonomy becomes the bottleneck** — agentic work closes the loop that ISAC
+   left open, giving the network a continuous perception → reasoning → action cycle. The
+   sharpest claim in this literature inverts the field's default objective: waveform,
+   beam, and power should be configured for *learning alignment*, not for sensing
+   accuracy or data rate alone.
 
 ## Refreshing this collection
 
 ```bash
-python scripts/fetch_arxiv_isac.py            # print latest results to stdout
-python scripts/fetch_arxiv_isac.py -o out.md  # write a fresh markdown report
+python scripts/fetch_arxiv_isac.py                 # print latest results to stdout
+python scripts/fetch_arxiv_isac.py -o out.md       # write a fresh markdown report
+python scripts/fetch_arxiv_isac.py --source openalex   # skip arXiv entirely
 ```
 
 The script queries the official [arXiv API](https://info.arxiv.org/help/api/index.html)
-(`export.arxiv.org/api/query`) for each AI-technique category and formats the results as
-markdown. arXiv asks automated clients to stay under 1 request / 3 seconds — the script
-respects that.
+(`export.arxiv.org/api/query`) for each AI-technique category, and falls back to
+[OpenAlex](https://docs.openalex.org/) — which indexes arXiv preprints with their
+abstracts — when arXiv is unreachable. Both APIs are asked for no more than one request
+every 3 seconds, and transient failures are retried with exponential backoff.
+
+The fallback is not hypothetical: arXiv returns **HTTP 406** to some hosts, GitHub
+Actions runners among them, so the CI refresh runs on OpenAlex while a local run
+normally uses arXiv directly. Each report names the source it was built from. If a run
+fails outright, the workflow opens an issue rather than letting the feed go stale
+unnoticed.
