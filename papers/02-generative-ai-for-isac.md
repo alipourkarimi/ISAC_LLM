@@ -76,6 +76,32 @@ signal processing and GenAI components.
 
 ---
 
+## 5. RadioVIL: Anomaly-Aware Diffusion Models for Radio Map Inpainting and Zero-Shot Vehicle Localization
+
+- **arXiv:** [2608.16167](https://arxiv.org/abs/2608.16167) · Aug 2026 · eess.SP
+
+**Brief.** Identifies a failure mode that matters for any generative approach to sensing:
+treating radio-map construction as **pure image completion** produces over-smoothed
+reconstructions that **erase the high-frequency scattering signatures** of the very things
+you want to detect, such as hidden vehicles. The fix is to reformulate inpainting and
+localization as a **prior-guided physical inverse problem**. A DDPM first learns the
+environment's structural prior; at inference from sparse measurements, a Diffusion-based
+Mediating Intermediate Layer Optimization (DMILO) step optimizes an L1-regularized sparse
+deviation term to **isolate scattering anomalies layer by layer**, without unfolding the
+whole denoising chain.
+
+Conventional reconstruction baselines fail to detect hidden vehicles at all, and a
+zero-shot diffusion baseline manages only limited detection because it forces semantic
+harmonization. RadioVIL preserves authentic physical texture (best LPIPS 0.0587) and
+unlocks **zero-shot localization from sparse radio maps** at 75.20% recall and 3.31 m
+average error.
+
+**Why it matters:** a concrete warning that generative priors can smooth away exactly the
+anomaly the sensing task exists to find — and a method that keeps the anomaly by treating
+it as a residual rather than something to reconcile.
+
+---
+
 ### Category takeaway
 
 Diffusion models have displaced GANs as the default generative tool in ISAC work

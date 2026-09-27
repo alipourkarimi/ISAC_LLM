@@ -160,6 +160,32 @@ network does it physically run?", which is what deployment actually turns on.
 
 ---
 
+## 10. Generative AI-Enabled Mission-Aware Radio Orchestration for RIS-Assisted LEO Satellite ISAC
+
+- **arXiv:** [2608.25803](https://arxiv.org/abs/2608.25803) · Aug 2026 · eess.SP
+
+**Brief.** Mission-adaptive LEO satellite ISAC has to retarget radio resources whenever the
+operator's goals change, and those goals arrive as *language*, not as a cost function.
+An LLM maps each mission statement into a **structured policy** — communication, sensing,
+and fairness weights, mandatory QoS thresholds, power-allocation guidance, and solver
+initialization — after which **deterministic validation and physical-layer optimization
+enforce feasibility** and realize the policy through beam, power, and RIS configuration.
+The split is explicitly **mixed-timescale**: generative AI handles semantic adaptation at
+the slow mission timescale, conventional optimization runs at the fast channel timescale.
+
+On held-out compositional instructions, zero-shot and in-context prompting reach **91.7%
+and 94.4% priority-order accuracy**; in-context learning mainly improves *numerical
+calibration*, and the downstream radio-performance difference between them is
+statistically unresolved because both usually recover the hard constraints that determine
+which actions are admissible.
+
+**Why it matters:** the most carefully measured version of the hybrid pattern — it shows
+the LLM's contribution is getting the *priorities and constraints* right, not computing
+the solution, and quantifies how little the prompting strategy matters once constraints
+are recovered.
+
+---
+
 ### Category takeaway
 
 LLM-for-ISAC work is young but moving fast: 2024 papers used LLMs *around* the problem

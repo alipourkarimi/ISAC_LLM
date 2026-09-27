@@ -99,6 +99,52 @@ data nor its semantic content, and analyzes the resulting security/efficiency tr
 
 ---
 
+### 9. Goal-Oriented Semantic Communication for Distributed ISAC-Enabled Vehicle Coordination
+
+- **arXiv:** [2607.15111](https://arxiv.org/abs/2607.15111) · Jul 2026 · eess.SP
+
+**Brief.** Coordinating vehicles at **unsignalized intersections** needs accurate
+real-time vehicle state plus reliable command-and-control delivery, and treating sensing,
+communication, and control separately yields redundant transmissions, stale state, and
+unreliable coordination. Here multiple roadside units collaboratively send both sensing
+signals (for state acquisition) and C&C signals (for movement control) under a central
+base station. The goal-oriented framework transmits **only when a signal is semantically
+important for intersection throughput**: an extended Kalman filter predicts states and
+fuses distributed measurements, while a masked hybrid PPO agent jointly decides *whether*
+to transmit sensing, *whether* to transmit C&C, and *what the C&C content should be*,
+rewarded by **value of information**. An uncertainty-aware transmission design adds
+robust beamforming and VoI-based time-division power allocation against state uncertainty
+and inter-RSU interference.
+
+Reported result: **100% collision-free coordination with significantly reduced
+signaling**.
+
+**Why it matters:** the clearest demonstration that "semantic" can mean *deciding not to
+transmit* — with safety preserved rather than traded away.
+
+---
+
+### 10. Adaptive Source-Channel Coding for Bi-static Integrated Sensing and Semantic Communications
+
+- **arXiv:** [2608.10898](https://arxiv.org/abs/2608.10898) · Aug 2026 · eess.SP
+
+**Brief.** Notes that most semantic-ISAC work only compresses sensing data to cut
+downstream overhead, without a genuinely **integrated transmission framework** covering
+both the semantic and sensing tasks. SA-ASCC jointly optimizes the semantic coding rate
+and the transmit beamforming serving both functions in a **bi-static** system, where
+transmitter and receiver sit in different places and therefore suffer **imperfect time
+synchronization**. The analysis derives an upper bound on end-to-end semantic distortion
+that separates source- and channel-coding contributions, plus a **hybrid Cramér-Rao
+bound** for target position under that synchronization error. Distortion minimization
+subject to an HCRB threshold, channel uses, and power budget is non-convex and
+mixed-integer, so an alternating optimization splits it into model selection (exhaustive
+search) and joint rate-and-beamforming (successive convex approximation).
+
+**Why it matters:** supplies the missing theory — an achievable region between semantic
+and sensing performance, with synchronization error modeled rather than assumed away.
+
+---
+
 ### Category takeaway
 
 These works push ISAC beyond a two-way trade-off into three- and four-way co-design:

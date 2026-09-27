@@ -62,6 +62,31 @@ than architecture diagrams alone.
 
 ---
 
+## 4. Exploiting LLM Agents for Trustworthy AutoResearch in Wireless Communications
+
+- **arXiv:** [2609.06174](https://arxiv.org/abs/2609.06174) · Sep 2026 · eess.SP / cs.AI
+
+**Brief.** Turns agentic AI on the research process itself: LLM agents handle knowledge
+synthesis, multistep planning, code generation, tool invocation, and iterative refinement
+across the whole lifecycle, from hypothesis through experimentation to manuscript. The
+paper argues wireless is unusually well suited to this because progress there rests on
+fundamental-limit analysis, system optimization, and protocol design — all backed by
+mature mathematical, simulation, and optimization toolchains plus standards, measurement,
+and digital-twin platforms that an agent can actually call.
+
+The contribution is the **trustworthiness scaffolding**, not the automation: typed
+research contracts, version-controlled artifacts, independent validators, and **bounded
+agent authority**, so each step leaves traceable process and verifiable evidence. The
+case study is **ISAC for UAVs**, where the framework generated research ideas and — with
+expert intervention — produced a manuscript scoring comparably to or above related IEEE
+conference and letter papers.
+
+**Why it matters:** the one paper here whose subject is this repository's own activity.
+Note the honest caveat carried in its own result: the manuscript reached that standard
+*with appropriate expert intervention*, not autonomously.
+
+---
+
 ### Category takeaway
 
 Agentic AI is where the LLM thread (file 01) and the foundation-model thread (file 06)

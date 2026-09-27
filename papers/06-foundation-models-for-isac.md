@@ -106,6 +106,29 @@ ultimately heading: the network as an embodied perceiving agent.
 
 ---
 
+## 7. Out-of-Distribution Detection in Wireless Multimodal Foundation Models for 6G ISAC
+
+- **arXiv:** [2607.21455](https://arxiv.org/abs/2607.21455) · Jul 2026 · eess.SP
+
+**Brief.** The first paper in this category to attack the obvious objection to everything
+above it. Foundation models operate under a **closed-world assumption**, so in an unseen
+radio environment they do not report difficulty — they **fail silently**, which is
+disqualifying for safety-critical infrastructure. WMFM-OOD is a metric-based
+out-of-distribution detector that, rather than trusting raw compatibility scores, builds
+geometric **base-station prototypes inside the joint latent space** to capture the
+manifold of valid radio environments, then applies temperature-scaled probabilistic
+scoring to separate in-distribution inputs from covariate-shifted anomalies.
+
+Validated on DeepVerse6G, it reaches **AUROC 0.8824** and cuts FPR95 by roughly **17%**
+against uncalibrated baselines. The authors are careful that this is an *initial* layer
+of detection sensitivity, mitigating rather than eliminating catastrophic failures.
+
+**Why it matters:** the counterweight to this category's enthusiasm. Every paper above
+promises generalization; this one measures what happens when generalization runs out, and
+an AUROC of 0.88 says the problem is real and not yet solved.
+
+---
+
 ### Category takeaway
 
 Between late 2025 and mid 2026 the field pivoted from task-specific networks to

@@ -87,6 +87,54 @@ tackles the more honest POMDP formulation.
 
 ---
 
+## 6. AERIS: Offline Policy Improvement for Multi-UAV Integrated Sensing and Communication
+
+- **arXiv:** [2608.25477](https://arxiv.org/abs/2608.25477) · Aug 2026 · eess.SP
+
+**Brief.** Confronts the objection that hangs over every paper above: online RL learns by
+**risky trial-and-error flights** that can cause sensing loss or near-collisions, while
+classical optimization needs repeated global non-convex solving. AERIS learns **offline
+from fixed flight logs** under centralized training with decentralized execution — each
+UAV acts on local history, training uses logged global information to judge team-level
+effects. Its STAR-CRDT algorithm performs support-aware local action rectification and
+distills **only trusted improvements** into the decentralized actor, with a proven
+offline-support policy improvement guarantee.
+
+It improves the main ISAC objective return by **29.3%** over the strongest baseline, with
+communication sum rate, sensing pass rate, and sensing margin up 3.4%, 4.8%, and 69.1%,
+while cutting **collision-risk events by 54.2%** — and it still returns best on unseen
+real-road maps built from OpenStreetMap data.
+
+**Why it matters:** the safe-exploration answer that does not need a digital twin. Learn
+from logs you already have, and prove the policy only improves within their support.
+
+---
+
+## 7. Curriculum-Guided Reinforcement Learning for Energy-Efficient UAV-ISAC in Post-Disaster Search-and-Rescue
+
+- **arXiv:** [2609.01764](https://arxiv.org/abs/2609.01764) · Sep 2026 · eess.SP
+
+**Brief.** Adds the constraint that decides whether a UAV mission is feasible at all —
+**onboard energy** — which couples sensing accuracy, communication quality, and
+propulsion cost. CG-SAC jointly optimizes 3D trajectory, the communication/sensing power
+split, and per-user power allocation. Its distinguishing move is physical rather than
+algorithmic: a rotary-wing propulsion model yields a **closed-form propulsion-economic
+cruising speed**, which becomes a speed-shaping term in the reward, alongside
+navigation, node-visiting, energy-efficiency, and constraint-penalty terms. A log-linear
+**curriculum** progressively tightens communication, sensing, and proximity requirements
+during training.
+
+Across 2000 randomized scenarios it reaches 0.72 Mbits/J average energy efficiency,
+needs 107.6 steps on average for completed missions (a **66–82% reduction in flight
+steps**), and satisfies the communication rate at 99.6% of service instants. The learned
+policy shows **mission-aware speed adaptation**, decelerating near service points and
+accelerating in transit — behavior nobody hand-coded.
+
+**Why it matters:** shows reward shaping grounded in a physical model beats generic
+shaping, and that the resulting policy discovers operationally sensible behavior.
+
+---
+
 ### Category takeaway
 
 DRL is the most mature AI technique in ISAC: standard algorithm families (DDPG/TD3/PPO/

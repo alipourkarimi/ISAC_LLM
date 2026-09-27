@@ -1,6 +1,6 @@
 # AI-Empowered Integrated Sensing and Communication (ISAC) — arXiv Research Collection
 
-A curated collection of **42 arXiv papers** at the intersection of **Integrated Sensing
+A curated collection of **50 arXiv papers** at the intersection of **Integrated Sensing
 and Communication (ISAC)** and **Artificial Intelligence** — covering Large Language
 Models (LLMs), Generative AI / diffusion models, (Deep) Reinforcement Learning, classical
 Deep Learning, Federated Learning, Semantic Communication, Wireless Foundation Models,
@@ -11,9 +11,9 @@ hardware platform serve **both** radar-style sensing (detection, localization, t
 and data communication. Because the joint design space is huge and hard to optimize with
 closed-form methods, AI techniques have become the dominant research direction.
 
-> Curated briefs last updated **2026-09-26** from arXiv searches. Each brief is based on
-> the paper's abstract and public metadata — always read the original paper before
-> citing. For an unfiltered, always-current feed see
+> Curated briefs last updated **2026-09-27**. Briefs for papers 43–50 are written from
+> the papers' own abstracts; earlier ones from abstracts and public metadata — always
+> read the original before citing. For an unfiltered, always-current feed see
 > [`latest-arxiv-report.md`](latest-arxiv-report.md), regenerated weekly by CI.
 
 ---
@@ -78,6 +78,14 @@ closed-form methods, AI techniques have become the dominant research direction.
 | 40 | [2607.16507](https://arxiv.org/abs/2607.16507) | AISAC: closing the loop between AI and ISAC | Agentic AI / closed loop |
 | 41 | [2608.05792](https://arxiv.org/abs/2608.05792) | When agentic AI meets ISAC | Agentic AI (multi-technique) |
 | 42 | [2512.15044](https://arxiv.org/abs/2512.15044) | Agentic AI for ISAC: analysis, framework, case study | Agentic AI |
+| 43 | [2608.25803](https://arxiv.org/abs/2608.25803) | Mission-aware radio orchestration for RIS-assisted LEO ISAC | LLM + convex optimization |
+| 44 | [2609.06174](https://arxiv.org/abs/2609.06174) | LLM agents for trustworthy AutoResearch in wireless | LLM agents |
+| 45 | [2608.16167](https://arxiv.org/abs/2608.16167) | RadioVIL: anomaly-aware diffusion for radio maps | Diffusion (inverse problem) |
+| 46 | [2608.25477](https://arxiv.org/abs/2608.25477) | AERIS: offline policy improvement for multi-UAV ISAC | Offline multi-agent RL |
+| 47 | [2609.01764](https://arxiv.org/abs/2609.01764) | Curriculum-guided RL for energy-efficient UAV-ISAC | Deep RL (curriculum) |
+| 48 | [2607.15111](https://arxiv.org/abs/2607.15111) | Goal-oriented semantic communication for vehicle coordination | Semantic + masked hybrid PPO |
+| 49 | [2608.10898](https://arxiv.org/abs/2608.10898) | Adaptive source-channel coding for bi-static ISSC | Semantic communication |
+| 50 | [2607.21455](https://arxiv.org/abs/2607.21455) | OOD detection in wireless multimodal foundation models | Foundation model reliability |
 
 ## Key takeaways across the literature
 
@@ -112,6 +120,13 @@ closed-form methods, AI techniques have become the dominant research direction.
    sharpest claim in this literature inverts the field's default objective: waveform,
    beam, and power should be configured for *learning alignment*, not for sensing
    accuracy or data rate alone.
+9. **Late 2026: trust catches up with capability** — the newest papers are less about new
+   capability than about what happens when it fails. Foundation models are shown to fail
+   *silently* out of distribution and are given detectors; online RL's risky exploration
+   is replaced by offline learning from existing flight logs with a policy-improvement
+   guarantee; generative priors are caught smoothing away the anomalies sensing exists to
+   find; and research agents are fenced in with bounded authority and independent
+   validators. Reliability, not accuracy, is the current frontier.
 
 ## Refreshing this collection
 
