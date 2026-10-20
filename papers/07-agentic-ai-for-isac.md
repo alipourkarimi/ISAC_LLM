@@ -87,6 +87,32 @@ Note the honest caveat carried in its own result: the manuscript reached that st
 
 ---
 
+## 5. AIMS: An Agentic AI Framework for Sim-to-Real Multi-Modal ISAC
+
+- **arXiv:** [2609.39964](https://arxiv.org/abs/2609.39964) · Sep 2026 · eess.SP
+
+**Brief.** Attacks the data bottleneck that constrains every multimodal ISAC model: they
+need annotated real-world data linking sensing and wireless observations, which does not
+scale. Synthetic data helps, but adapting a simulation pipeline to a target deployment
+means getting scene, sensing, wireless, and learning configurations mutually consistent —
+and **mismatches among those coupled components are what destroys sim-to-real transfer**.
+
+AIMS takes a **natural-language deployment request** (target task, deployment conditions,
+real-data budget) and derives a deployment-specific sim-to-real configuration, then
+executes it. Two agents divide the work: a **scene construction agent** generates
+geographically grounded, synchronized sensing and wireless records from shared physical
+states, while a **scene understanding agent** configures task-relevant modalities and a
+mixture-of-experts learner for zero-shot inference or few-shot adaptation. Structured
+domain knowledge drives dependency-aware planning, and validation evidence feeds back to
+revise affected decisions. Evaluated on the real **DeepSense 6G** dataset, it improves
+vehicle detection and beam prediction over the simulation baselines considered.
+
+**Why it matters:** the agentic pattern applied to the *pipeline* rather than the radio —
+the agent's job is keeping a dozen coupled configuration choices consistent, which is
+exactly the work that defeats humans and causes sim-to-real failure.
+
+---
+
 ### Category takeaway
 
 Agentic AI is where the LLM thread (file 01) and the foundation-model thread (file 06)

@@ -102,6 +102,29 @@ it as a residual rather than something to reconcile.
 
 ---
 
+## 6. UAV SAR Imaging via Diffusion Posterior Sampling under Non-Ideal Motion in ISAC Systems
+
+- **arXiv:** [2610.14516](https://arxiv.org/abs/2610.14516) · Oct 2026 · eess.SP
+
+**Brief.** UAV-borne synthetic aperture radar can serve ground users while imaging the
+environment, but real flights violate SAR's core assumption: trajectories are not uniform
+linear motion and positions carry unknown error, which defocuses the image. The paper
+formulates ISAC SAR imaging as an **exact linear inverse problem** that models arbitrary
+trajectories under MIMO-OFDM waveforms, then solves it with **diffusion posterior
+sampling** — a pre-trained diffusion model supplies the data-driven image prior while the
+exact physical model **enforces measurement consistency during posterior inference**. For
+unknown position errors it adds a joint iterative DPS and motion-compensation algorithm
+with DCT reparameterization and coarse-to-fine spectral scheduling.
+
+It holds **>21.3 dB PSNR even at half physical resolution truncation**, and reaches
+23.65 dB with residual position-error estimation of 0.19 cm under unknown motion.
+
+**Why it matters:** the cleanest answer to the worry raised by RadioVIL above. Rather than
+letting the generative prior invent detail, the physics constrains every denoising step —
+the prior supplies plausibility, the measurement model supplies truth.
+
+---
+
 ### Category takeaway
 
 Diffusion models have displaced GANs as the default generative tool in ISAC work

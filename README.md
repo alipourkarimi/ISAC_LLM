@@ -1,6 +1,6 @@
 # AI-Empowered Integrated Sensing and Communication (ISAC) — arXiv Research Collection
 
-A curated collection of **50 arXiv papers** at the intersection of **Integrated Sensing
+A curated collection of **58 arXiv papers** at the intersection of **Integrated Sensing
 and Communication (ISAC)** and **Artificial Intelligence** — covering Large Language
 Models (LLMs), Generative AI / diffusion models, (Deep) Reinforcement Learning, classical
 Deep Learning, Federated Learning, Semantic Communication, Wireless Foundation Models,
@@ -11,7 +11,7 @@ hardware platform serve **both** radar-style sensing (detection, localization, t
 and data communication. Because the joint design space is huge and hard to optimize with
 closed-form methods, AI techniques have become the dominant research direction.
 
-> Curated briefs last updated **2026-09-27**. Briefs for papers 43–50 are written from
+> Curated briefs last updated **2026-10-20**. Briefs for papers 43–58 are written from
 > the papers' own abstracts; earlier ones from abstracts and public metadata — always
 > read the original before citing. For an unfiltered, always-current feed see
 > [`latest-arxiv-report.md`](latest-arxiv-report.md), regenerated weekly by CI.
@@ -86,6 +86,14 @@ closed-form methods, AI techniques have become the dominant research direction.
 | 48 | [2607.15111](https://arxiv.org/abs/2607.15111) | Goal-oriented semantic communication for vehicle coordination | Semantic + masked hybrid PPO |
 | 49 | [2608.10898](https://arxiv.org/abs/2608.10898) | Adaptive source-channel coding for bi-static ISSC | Semantic communication |
 | 50 | [2607.21455](https://arxiv.org/abs/2607.21455) | OOD detection in wireless multimodal foundation models | Foundation model reliability |
+| 51 | [2609.39964](https://arxiv.org/abs/2609.39964) | AIMS: agentic sim-to-real multi-modal ISAC | Agentic AI (two-agent + MoE) |
+| 52 | [2610.15338](https://arxiv.org/abs/2610.15338) | Radio echo representation learning for semantic sensing | Multimodal representation learning |
+| 53 | [2610.14516](https://arxiv.org/abs/2610.14516) | UAV SAR imaging via diffusion posterior sampling | Diffusion + physical inverse problem |
+| 54 | [2609.18305](https://arxiv.org/abs/2609.18305) | SemISAC: semantic integrated sensing and communications | Semantic communication (framework) |
+| 55 | [2608.14877](https://arxiv.org/abs/2608.14877) | Deep RL for 6G AI-RAN (survey) | Survey (DRL / O-RAN) |
+| 56 | [2609.33605](https://arxiv.org/abs/2609.33605) | Short-length code designs for ISAC | Autoencoder waveform/code design |
+| 57 | [2610.09429](https://arxiv.org/abs/2610.09429) | Predictive beamforming via echo-beam modality separation | Cross-attention + GRU |
+| 58 | [2610.25798](https://arxiv.org/abs/2610.25798) | Robust resource allocation for STAR-RIS ISAC | Model-driven deep learning |
 
 ## Key takeaways across the literature
 
@@ -142,8 +150,10 @@ The script queries the official [arXiv API](https://info.arxiv.org/help/api/inde
 abstracts — when arXiv is unreachable. Both APIs are asked for no more than one request
 every 3 seconds, and transient failures are retried with exponential backoff.
 
-The fallback is not hypothetical: arXiv returns **HTTP 406** to some hosts, GitHub
-Actions runners among them, so the CI refresh runs on OpenAlex while a local run
-normally uses arXiv directly. Each report names the source it was built from. If a run
-fails outright, the workflow opens an issue rather than letting the feed go stale
+The fallback is not hypothetical. Through September 2026 arXiv returned **HTTP 406** to
+GitHub Actions runners for every request shape tried, and the weekly refresh ran entirely
+on OpenAlex. That block has since lifted: runs from mid-October use arXiv again, with
+OpenAlex covering whatever arXiv misses. Each report names the sources it was built from,
+so the header is the record of which path was used. If a run fails outright the workflow
+opens an issue — or comments on the open one — rather than letting the feed go stale
 unnoticed.

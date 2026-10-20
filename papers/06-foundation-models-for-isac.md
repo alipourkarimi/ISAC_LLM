@@ -129,6 +129,31 @@ an AUROC of 0.88 says the problem is real and not yet solved.
 
 ---
 
+## 8. Radio Echo Representation Learning for Semantic Sensing in Multi-Modal ISAC Systems
+
+- **arXiv:** [2610.15338](https://arxiv.org/abs/2610.15338) · Oct 2026 · eess.SP
+
+**Brief.** Notes that multimodal ISAC has so far been lopsided: work is "vision-assisted
+radio," using cameras to help estimate radio parameters, or it processes the two
+modalities separately — leaving **radio representations underused for improving the
+visual task**. This paper runs the arrow the other way. A **radio encoder** learns
+representations oriented toward visual localization directly from **superimposed pilot
+echoes**, and *Variational Radio-Visual Grounding* keeps those representations
+semantically consistent with visual spatial features. The learned radio features then act
+as **semantic probes** that highlight the matching entity in the visual scene through
+cross-modal fusion — the hard part being echo interference, which muddies any attempt to
+learn user-specific radio representations.
+
+On the real-world **RCooper** dataset the resulting radio-visual embeddings enable
+accurate radio-visual user matching and improve *both* visual localization and physical
+parameter estimation.
+
+**Why it matters:** radio as a first-class semantic modality rather than vision's helper.
+It also makes the alignment concrete — matching which radio echo belongs to which person
+in the camera frame is a sharper test than generic embedding similarity.
+
+---
+
 ### Category takeaway
 
 Between late 2025 and mid 2026 the field pivoted from task-specific networks to

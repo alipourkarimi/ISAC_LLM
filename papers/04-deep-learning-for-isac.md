@@ -93,6 +93,58 @@ parametric estimators and proposing hybrid pipelines.
 
 ---
 
+### 8. Short-Length Code Designs for ISAC: A Deep Learning Approach
+
+- **arXiv:** [2609.33605](https://arxiv.org/abs/2609.33605) · Sep 2026 · eess.SP
+
+**Brief.** Opens a part of the stack the rest of this collection leaves alone: **channel
+coding**. In the **short blocklength** regime the communication/sensing trade-off is at
+its sharpest, and the usual asymptotic intuitions do not apply. The paper derives a
+modified Cramér-Rao bound for multi-target delay estimation and analyzes the
+maximum-likelihood decoding rule for **noncoherent** communication under correlated
+fading, using both to expose the structural connections between the two objectives. An
+**autoencoder** then learns waveform representations optimizing both, with a tunable
+parameter setting where on the trade-off to sit. It beats conventional schemes on
+reliability *and* sensing accuracy, most clearly at short blocklength under fading.
+
+**Why it matters:** most learned ISAC work optimizes beams and power over a fixed
+waveform family; this learns the code itself, in the regime where closed-form design is
+weakest.
+
+### 9. Predictive Beamforming via Echo-Beam Modality Separation with Cross-Attention
+
+- **arXiv:** [2610.09429](https://arxiv.org/abs/2610.09429) · Oct 2026 · eess.SP
+
+**Brief.** In V2I networks, sensing echoes can predict where a beam should point next.
+The design point worth noting is **negative evidence against naive fusion**: echoes and
+historical beamformers are pushed through **separate encoders** to preserve their
+modality-specific character, and only then combined via **cross-attention**, which the
+authors find exploits the two representations more effectively than concatenating inputs.
+GRUs capture dependence across time slots. Training uses a penalty-based unconstrained
+surrogate for sum-spectral-efficiency maximization under a sensing SINR constraint.
+
+**Why it matters:** a concrete architectural finding — *when* you fuse modalities matters
+as much as *that* you fuse them, echoing the separate-encoder pattern in SIMAC and the
+radio-echo work in file 06.
+
+### 10. Robust Resource Allocation for STAR-RIS-Assisted ISAC Networks Using Deep Learning
+
+- **arXiv:** [2610.25798](https://arxiv.org/abs/2610.25798) · Oct 2026 · eess.SP
+
+**Brief.** A simultaneously transmitting and reflecting RIS serves users on both sides of
+the surface, which makes the joint resource problem coupled and non-convex. Prior
+iterative optimizers assume **accurate global channel information and ideal phase
+shifts** — assumptions that break in deployment. This **model-driven** deep learning
+framework jointly optimizes transmit beamforming, waveform, and the STAR-RIS
+reflection/transmission coefficient matrices by minimizing a weighted sum of
+**multi-user interference energy** (communication) and **CRLB** (sensing), at low
+overhead and explicitly **under imperfect channel information**.
+
+**Why it matters:** the robustness framing is the contribution — it targets the gap
+between what iterative optimizers assume and what a real deployment can measure.
+
+---
+
 ### Category takeaway
 
 The DL-for-ISAC literature is converging on **hybrid designs**: embed the known physics

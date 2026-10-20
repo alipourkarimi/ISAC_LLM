@@ -135,6 +135,29 @@ shaping, and that the resulting policy discovers operationally sensible behavior
 
 ---
 
+## 8. Deep Reinforcement Learning for 6G AI-RAN: A Comprehensive Survey
+
+- **arXiv:** [2608.14877](https://arxiv.org/abs/2608.14877) · Aug 2026 · eess.SP / cs.NI
+
+**Brief.** Positions ISAC inside the wider picture of a programmable, intelligent radio
+access network. O-RAN supplies the open interfaces, disaggregated architecture, and
+**multi-timescale control loops**; DRL supplies sequential decision-making under
+uncertainty. The authors argue prior surveys either cover AI/ML in O-RAN broadly or pick
+off isolated DRL use cases, leaving no systematic link between **DRL methodology, O-RAN
+architecture, and operational deployment** — the gap this fills.
+
+It reviews model-free, model-based, offline, safe, multi-agent, federated, and transfer
+learning, then gives an **O-RAN-aware recipe for formulating RAN control problems** in
+terms of states, observations, actions, rewards, constraints, and temporal structure —
+the step most ISAC-RL papers skip past. Applications are classified across radio resource
+management, mobility, interference control, traffic steering, energy efficiency, network
+slicing, **ISAC**, security, and massive MIMO.
+
+**Recommended as the entry-point survey for this category**, and the best source on where
+ISAC sits relative to every other RAN control problem competing for the same resources.
+
+---
+
 ### Category takeaway
 
 DRL is the most mature AI technique in ISAC: standard algorithm families (DDPG/TD3/PPO/

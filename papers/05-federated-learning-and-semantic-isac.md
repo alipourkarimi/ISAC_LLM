@@ -145,6 +145,31 @@ and sensing performance, with synchronization error modeled rather than assumed 
 
 ---
 
+### 11. SemISAC: Semantic Integrated Sensing and Communications
+
+- **arXiv:** [2609.18305](https://arxiv.org/abs/2609.18305) · Sep 2026 · eess.SP
+
+**Brief.** Makes the general case this category had been approaching piecemeal.
+Conventional ISAC integrates the two functions through **shared physical resources**
+only, never exploiting task-relevant meaning; SemISAC unifies **semantic communication**
+(conveying source meaning) with **semantic sensing** (acquiring environmental meaning) in
+one framework. The transmitter combines source semantics, sensing task information, and
+side information to design the shared waveform and allocate resources; receiver-side task
+decoders then recover the source meaning and infer the needed environmental information
+separately.
+
+Two contributions lift it above a framework paper: an **information-theoretic
+interpretation** relating physical to task-relevant information that characterizes the
+resulting semantic trade-off, and two concrete realizations — end-to-end and modular
+optimization. The modular route is demonstrated on a learnable time-frequency precoder in
+OFDM, reducing sensing semantic distortion at a given communication requirement.
+
+**Why it matters:** the general statement of semantic ISAC, with a trade-off
+characterization rather than only an architecture — useful as this sub-field's reference
+point.
+
+---
+
 ### Category takeaway
 
 These works push ISAC beyond a two-way trade-off into three- and four-way co-design:
