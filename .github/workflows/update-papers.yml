@@ -38,7 +38,7 @@ jobs:
           fi
 
       # Without this the job can fail every week and nobody notices: the report
-      # just silently stops updating. Open (or reuse) an issue instead.
+      # just silently stops updating. Open an issue, or comment on the open one.
       - name: Report failure as an issue
         if: failure()
         uses: actions/github-script@v7
@@ -50,16 +50,26 @@ jobs:
             const body = `The scheduled refresh of \`latest-arxiv-report.md\` failed.\n\n` +
                          `Run: ${runUrl}\n\n` +
                          `The report is now stale until this is fixed. A common cause is ` +
-                         `arXiv changing what it accepts from automated clients ` +
-                         `(e.g. HTTP 406 when the request sends no \`Accept\` header).`;
+                         `the paper APIs changing what they accept from automated clients ` +
+                         `(e.g. arXiv returning HTTP 406 to CI runners).`;
             const existing = await github.rest.issues.listForRepo({
               owner: context.repo.owner,
               repo: context.repo.repo,
               state: "open",
               labels: "automation-failure",
             });
-            if (existing.data.some((issue) => issue.title === title)) {
-              core.info("An open failure issue already exists; not filing another.");
+            const open = existing.data.find((issue) => issue.title === title);
+            // Commenting rather than returning early matters: a stale open issue
+            // would otherwise swallow every later failure and disarm this alarm.
+            if (open) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: open.number,
+                body: `Failed again on ${new Date().toISOString().slice(0, 10)}.\n\n` +
+                      `Run: ${runUrl}`,
+              });
+              core.warning(`Refresh failed again; commented on #${open.number}.`);
               return;
             }
             await github.rest.issues.create({
