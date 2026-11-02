@@ -1,6 +1,6 @@
 # ISAC + AI papers on arXiv
 
-Generated on 2026-10-26 via arXiv.
+Generated on 2026-11-02 via arXiv.
 
 ## Large Language Models (LLMs)
 
@@ -130,6 +130,12 @@ Generated on 2026-10-26 via arXiv.
 
 ## Reinforcement Learning
 
+### [Pinching Antennas for ISAC: Waveguide Architectures, Solutions, and Future Directions](http://arxiv.org/abs/2610.41380v1)
+
+- **arXiv:** 2610.41380v1 · 2026-10-30 · Qian Gao, Ruikang Zhong
+
+> Integrated sensing and communication (ISAC) is a core design principle for sixth-generation (6G) wireless systems, yet fixed antenna geometry limits its performance. Pinching antenna systems (PASS) guide electromagnetic waves along dielectric waveguides and radiate them through position-adaptive antennas, allowing communication links and sensing observations to benefit from spatial reconfiguration. This article reviews PASS-enabled ISAC through single-waveguide, multi-waveguide, and segmented-waveguide architectures, comparing their feed structures, spatial degrees of freedom, operating protocols, and uplink/downlink support. We organize solution pathways around physics-consistent modeling, joint spatial-signal optimization, dynamic channel acquisition, and stable real-time control. A segmented waveguide-enabled pinching-antenna array (SWAN) case study demonstrates joint segment selection, antenna po?sitioning, and transmit beamforming using segment-hysteresis reinforcement learning. The results illustrate how waveguide loss and per-segment aperture gain create communication-sensing tradeoffs. We conclude with research directions in joint transmit?receive operation, measurement-calibrated digital twins, and trustworthy control.
+
 ### [Cross-Region Cooperation of UAV Swarms Towards Air-Ground ISAC via Hierarchical Multi-Agent Reinforcement Learning](http://arxiv.org/abs/2610.31054v1)
 
 - **arXiv:** 2610.31054v1 · 2026-10-22 · Linghui Miao, Nhan Thanh Nguyen, Shijian Gao
@@ -184,14 +190,14 @@ Generated on 2026-10-26 via arXiv.
 
 > In next-generation networks, communication systems will no longer be limited to data transmission and will be expected to acquire awareness of the surrounding environment. This leads to the concept of integrated sensing and communication (ISAC), where the same wireless infrastructure is used for both communication and environmental sensing. Thus, ISAC enables the system to transmit information efficiently and observe and interpret channel variations and user behavior. Motivated by this capability, this work focuses on detecting an active attacker in an urban environment scenario, where the attacker intentionally manipulates beamforming directions to increase interference and mislead the transmitter into allocating the main lobe of beam toward itself instead of legitimate users. We apply game-theoretic approaches to model the interaction between legitimate users and the attacker, and integrate the resulting utility-based formulation into a reinforcement learning (RL) framework. Simulation results demonstrate that the proposed method effectively addresses security challenges in dynamic 6G ISAC systems.
 
-### [DRL-Based Joint Beamforming and Surface Shape Optimization for Flexible Intelligent Metasurface-Aided ISAC Systems](http://arxiv.org/abs/2607.00951v1)
-
-- **arXiv:** 2607.00951v1 · 2026-07-01 · Maoyuan Wang, Qian Zhang, Jiancheng An et al.
-
-> Integrated sensing and communication (ISAC) unifies high-precision sensing and wireless data transmission. In this paper, we investigate the design of ISAC systems enabled by flexible intelligent metasurface (FIM) and aim to minimize the Cramér-Rao bound (CRB) with quality of service (QoS) constraints using deep reinforcement learning (DRL). Specifically, we formulate the joint design of beamforming matrix and FIMs surface shape to reduce the CRB subject to transmit power, QoS and the FIMs surface shape constraints. However, the non-convex formulation makes optimization problem difficult to solve. To tackle this issue, we develop a deep deterministic policy gradient (DDPG) actor critic DRL scheme for the joint design, guided by a constraint aware reward to progressively improve sensing performance. Numerical results demonstrate that jointly optimizing the beamforming matrix and the FIMs surface shape substantially decreases CRB while ensuring communication quality compared with existing rigid arrays.
-
 
 ## Deep Learning
+
+### [Multistatic ISAC with Deep Learning-Based Clutter Suppression for 5G and Beyond](http://arxiv.org/abs/2610.40586v1)
+
+- **arXiv:** 2610.40586v1 · 2026-10-29 · Yalin E. Sagduyu, Tugba Erpek, Sastry Kompella
+
+> Integrated sensing and communications (ISAC) systems using 5G and beyond signals of opportunity enable joint wireless sensing and communication using shared infrastructure and spectrum resources. While multistatic ISAC can increase sensing coverage with spatially distributed receivers, dense and dynamic clutter can significantly degrade bistatic range and Doppler estimation, leading to errors in target localization and velocity estimation. This paper presents a multistatic ISAC framework with clutter suppression for high-fidelity estimation of target position and velocity. Distributed clutter is modeled with randomly located scatterers with varying Doppler spreads and radar cross sections to capture dense and dynamic clutter effects. A broad range of conventional signal processing baselines are evaluated for clutter suppression, showing limited robustness under strong clutter conditions. To address this limitation, deep learning-based clutter suppression methods are introduced to improve robustness against dense and dynamic clutter by employing residual and attention-enhanced deep neural network architectures that directly enhance target responses from clutter-contaminated observations. These methods substantially outperform conventional approaches in target position and velocity estimation across diverse clutter conditions in multistatic ISAC.
 
 ### [Robust Resource Allocation for STAR-RIS-Assisted ISAC Networks Using Deep Learning](http://arxiv.org/abs/2610.25798v1)
 
@@ -246,12 +252,6 @@ Generated on 2026-10-26 via arXiv.
 - **arXiv:** 2608.16167v1 · 2026-08-17 · Ruixin Zhao, Xiucheng Wang, Qiming Zhang et al.
 
 > High-precision radio map construction is essential for emerging 6G Integrated Sensing and Communication (ISAC) applications, including digital twins and intelligent transportation. However, existing deep learning methods predominantly treat this as a pure image completion task, resulting in over-smoothed reconstructions that fundamentally erase high-frequency scattering signatures of dynamic physical entities such as hidden vehicles. To overcome this, we propose RadioVIL, an efficient two-stage framework that reformulates joint radio map inpainting and zero-shot vehicle localization as a prior-guided physical inverse problem. Specifically, we first train a Denoising Diffusion Probabilistic Model (DDPM) to capture the structural generative prior of the environment. During inference from highly sparse measurements, we employ a Diffusion-based Mediating Intermediate Layer Optimization (DMILO) algorithm. By optimizing an L1-regularized sparse deviation term, DMILO mathematically isolates vehicle scattering anomalies layer-by-layer without unfolding the entire denoising chain. Extensive experiments demonstrate that while conventional reconstruction baselines fail to detect hidden vehicles, and the zero-shot diffusion baseline achieves only limited detection ability due to forced semantic harmonization, RadioVIL preserves authentic physical textures, yielding the best LPIPS of 0.0587 in our evaluation. Uniquely, it unlocks accurate zero-shot vehicle localization directly from sparse radio maps, securing a 75.20% Recall and a 3.31-meter average error, paving a robust way for ISAC at the 6G edge.
-
-### [Antenna Positioning and Beamforming Optimization in MA Enabled Secure ISAC Systems: A Gradient-Based Meta Learning Approach](http://arxiv.org/abs/2608.12870v2)
-
-- **arXiv:** 2608.12870v2 · 2026-08-13 · Zhendong Li, Yujie Zhao, Zhou Su et al.
-
-> Integrated sensing and communications (ISAC) significantly improves spectral efficiency but introduces security risks regarding the interception of embedded communication signals. This paper proposes an movable antenna (MA)-enabled secure ISAC system that utilizes the spatial degrees of freedom of MA to mitigate these risks. Then, a problem is formulated to maximize the system secrecy rate by jointly optimizing antenna positioning, transmit beamforming, and artificial noise. However, the principal challenge arises from the non-convexity of the optimization problem and the strong coupling of the optimization variables. Generally, traditional optimization methods for this problem suffer from complex mathematical derivations, while existing deep learning approaches rely heavily on the training data distribution. To address these issues, we introduce a gradient-based meta learning (GML) algorithm, which works without pre-training and demonstrates favorable performance. Specifically, the algorithm establishes a neural network for each optimization variable, where the gradient of the objective function with respect to the variable serves as the input, and the output of the network determines the variable's update step. By handling the constraints and constructing penalty terms, the global loss function is used to guide the optimization process. Extensive numerical simulations confirm that the proposed algorithm achieves satisfactory performance in terms of both communication security and sensing capabilities.
 
 
 ## Federated Learning
