@@ -1,6 +1,6 @@
 # ISAC + AI papers on arXiv
 
-Generated on 2026-11-02 via arXiv.
+Generated on 2026-11-09 via arXiv.
 
 ## Large Language Models (LLMs)
 
@@ -130,6 +130,12 @@ Generated on 2026-11-02 via arXiv.
 
 ## Reinforcement Learning
 
+### [Mission Capability-Aware UAV Swarm Coordination for Autonomous Disaster Response](http://arxiv.org/abs/2611.03728v1)
+
+- **arXiv:** 2611.03728v1 · 2026-11-01 · Mudassar Shakeel, Taha Mahmood, Ahmed Naeem et al.
+
+> This paper proposes an artificial intelligence (AI) driven mission capability aware unmanned aerial vehicle (UAV) swarm coordination framework for autonomous post disaster search and rescue. An integrated sensing and communication enabled master high altitude platform station senses the disaster environment, detects victims and hazards, and constructs adaptive rescue regions based on spatially varying mission demands. A mission capability requirement (MCR) quantifies regional capability demand, while a normalized mission capability score (MCS) characterizes the real time capability of individual UAVs. A capability-aware assignment mechanism matches UAV capabilities to regional requirements while minimizing deployment distance. An MCS based reallocation mechanism dynamically transfers UAVs from capability surplus to capability deficient regions while preserving donor sufficiency. A hierarchical deep reinforcement learning framework with proximal policy optimization performs high-level region selection, while MCR MCS matching enables feasible UAV level reallocation. Finally, joint trajectory optimization considers travel time, distance, propulsion energy, operational capability, obstacle avoidance, and inter UAV collision avoidance. Theoretical analysis and simulations demonstrate improved mission capability satisfaction, resource efficiency, and disaster response performance
+
 ### [Pinching Antennas for ISAC: Waveguide Architectures, Solutions, and Future Directions](http://arxiv.org/abs/2610.41380v1)
 
 - **arXiv:** 2610.41380v1 · 2026-10-30 · Qian Gao, Ruikang Zhong
@@ -184,12 +190,6 @@ Generated on 2026-11-02 via arXiv.
 
 > Deep reinforcement learning (DRL) has been widely adopted for wireless resource allocation due to its model-free adaptability. However, online exploration is costly, as randomly initialized policies may violate long-term constraints before sufficient data are collected. Future wireless systems must cope with increasingly dynamic traffic, fluctuating channel conditions, and stringent energy efficiency requirements, demanding algorithms that can learn quickly with minimal environment interactions to reduce both energy consumption and signaling overhead. We develop Fused-CPRO, a knowledge-fused constrained policy reuse optimization method addressing these challenges. Fused-CPRO constructs the allocation policy as a mixture of a learnable target policy, source policies from related scenarios, and domain-knowledge (DK) policies from expert rules, jointly optimizing the target policy and reuse probabilities under a constrained Markov decision process (CMDP). This fusion of heterogeneous priors accelerates convergence and enhances robustness. Constrained stochastic successive convex approximation (CSSCA) handles non-convex objectives and constraints, while a critic trained from mixed offline-online data improves sample efficiency by reusing pre-collected experience. We prove almost-sure convergence to a Karush-Kuhn-Tucker (KKT) point. Simulations on delay-constrained multi-user multiple-input multiple-output (MU-MIMO) power control and Cramer-Rao bound (CRB)-constrained multiple-input multiple-output integrated sensing and communication (MIMO-ISAC) beamforming demonstrate that Fused-CPRO improves empirical performance and converges substantially faster than representative baselines.
 
-### [6G Sensing Security: Distributed Game-Theoretic RL for Urban Beamforming and Attacker Detection](http://arxiv.org/abs/2607.06115v1)
-
-- **arXiv:** 2607.06115v1 · 2026-07-07 · Parmida Geranmayeh, Onur Günlü
-
-> In next-generation networks, communication systems will no longer be limited to data transmission and will be expected to acquire awareness of the surrounding environment. This leads to the concept of integrated sensing and communication (ISAC), where the same wireless infrastructure is used for both communication and environmental sensing. Thus, ISAC enables the system to transmit information efficiently and observe and interpret channel variations and user behavior. Motivated by this capability, this work focuses on detecting an active attacker in an urban environment scenario, where the attacker intentionally manipulates beamforming directions to increase interference and mislead the transmitter into allocating the main lobe of beam toward itself instead of legitimate users. We apply game-theoretic approaches to model the interaction between legitimate users and the attacker, and integrate the resulting utility-based formulation into a reinforcement learning (RL) framework. Simulation results demonstrate that the proposed method effectively addresses security challenges in dynamic 6G ISAC systems.
-
 
 ## Deep Learning
 
@@ -217,9 +217,9 @@ Generated on 2026-11-02 via arXiv.
 
 > In this paper, we propose a deep learning-based predictive beamforming algorithm for integrated sensing and communications in vehicle-to-infrastructure networks, where echo signals are leveraged to enhance communication performance. We formulate a sum spectral efficiency maximization problem under a sensing signal-to-interference-plus-noise ratio (SINR) constraint and construct a penalty-based unconstrained surrogate objective for network training. Based on this formulation, the beamforming matrix is predicted using sensing echoes and historical beamformers from previous time slots. To this end, we develop a predictive beamforming network that processes sensing echoes and beamforming inputs through separate encoders to preserve their modality-specific characteristics. This separate design enables each modality to learn rich and complementary representations which are more effectively exploited through a cross-attention mechanism compared to naive input fusion. The resulting features are fused via cross-attention, while gated recurrent units capture temporal dependencies across time slots. Simulation results validate the performance of the proposed method.
 
-### [Short-Length Code Designs for Integrated Sensing and Communications: A Deep Learning Approach](http://arxiv.org/abs/2609.33605v1)
+### [Short-Length Code Designs for Integrated Sensing and Communications: A Deep Learning Approach](http://arxiv.org/abs/2609.33605v2)
 
-- **arXiv:** 2609.33605v1 · 2026-09-27 · Muah Kim, Shuangyang Li, Tayyebeh Jahani-Nezhad et al.
+- **arXiv:** 2609.33605v2 · 2026-09-27 · Muah Kim, Shuangyang Li, Tayyebeh Jahani-Nezhad et al.
 
 > Integrated sensing and communication (ISAC) enables joint communication and sensing using a shared waveform, but its signal design is challenging due to the inherent trade-off between the two objectives, particularly in the short blocklength regime. This paper proposes an autoencoder (AE)-based framework for ISAC waveform design in noncoherent settings. We derive a modified Cramér-Rao bound for multi-target delay estimation and analyze the maximum-likelihood decoding rule for noncoherent communication under correlated fading. These results reveal structural connections and trade-offs between communication and sensing objectives in waveform design. Based on this analysis, the AE learns waveform representations that jointly optimize both functionalities, with a tunable parameter controlling the trade-off. Simulation results show that the proposed design outperforms conventional schemes in both communication reliability and sensing accuracy, especially under short blocklength and fading conditions.
 
